@@ -12,7 +12,14 @@
 *  It can be extended to include uppercase, numerics, and others by swapping
 *  the size of carr[], comparison character, and initializing character to account for it.
 *
-*  Either should run in O(n) time where n is the number of characters in s. 
+*  Either should run in O(n) time where n is the number of characters in s.
+*  Either should run in O(m) space where m is the size of s. This is because 
+*  the array will be roughly the same size as s and the set is guaranteed to be 
+*  less than or equal to in size to s.
+*
+*  A funny option would be the brute force approach of checking each character
+*  against one another to verify, which would be in O(1) space but would 
+*  be in O(n^2) time. 
 */
 
 
@@ -28,7 +35,13 @@ bool checkStringWithSet(std::string s) {
 }
 
 bool checkStringWithoutSet(std::string s) {
-  char carr[26] = {'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'};
+  char carr[26] = {
+                   '0','0','0','0','0','0',
+                   '0','0','0','0','0','0',
+                   '0','0','0','0','0','0',
+                   '0','0','0','0','0','0',
+                   '0','0'
+                  };
   for (char ch : s) {
     if (carr[ch - 'a'] != '0') {
       return false;
