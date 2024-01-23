@@ -20,6 +20,11 @@
 *  A funny option would be the brute force approach of checking each character
 *  against one another to verify, which would be in O(1) space but would 
 *  be in O(n^2) time. 
+*
+*  Another option if constant space is needed but the string is mutable is to 
+*  sort the array and then compare adjacent characters to one another. This could
+*  go afoul if the sorting algorithm implemented requires extra space, but if not
+*  this could be done in O(n log n) time and O(1) space.
 */
 
 
